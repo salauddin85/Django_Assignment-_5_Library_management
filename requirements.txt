@@ -20,3 +20,6 @@ sqlparse
 typing_extensions
 tzdata
 wheel
+
+
+# sed 's/==.*$//' requirements.txt
