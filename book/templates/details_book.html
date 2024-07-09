@@ -1,0 +1,32 @@
+
+ 
+{% extends 'base.html' %}
+{% block content %}
+<div class="mx-auto">
+
+        <div class="d-flex justify-content-center  flex-wrap   pt-5  mx-auto">
+            <div class="card  mt-2  mb-5 w-50 " style="background-color: rgba(85, 107, 47, 0.447);">
+                <div class="card-body">
+                    <img  src="{{bookmodel.image.url}}" style="width: 250px;" class="card-img-top" alt="...">
+                    <h5 class="card-title text-light mt-3">{{bookmodel.title}}</h5>
+                    <p class="card-text text-dark">{{bookmodel.description}}</p>
+                    <p class="text-warning text-bold">Price:${{bookmodel.price}}</p>
+                    <h5>Qunatity:{{bookmodel.quantity}}</h5>
+                    <p class="text-dark text-bold">
+                      {% for c in bookmodel.book_category.all %}
+                      <h4>{{c.category_name}}</h4>
+                      {% endfor %}
+
+      
+                    </p>
+                    <a class="btn btn-danger" href="{% url 'borrow_book' bookmodel.id %}">Buy</a>
+                    
+
+                </div>
+            </div>
+        </div>
+
+     
+
+</div>
+{% endblock %}

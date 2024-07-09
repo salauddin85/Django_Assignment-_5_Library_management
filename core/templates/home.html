@@ -1,0 +1,67 @@
+{% extends 'base.html' %} {% load static %} 
+{% block head_title %}
+MamarLibrary
+{%endblock %} 
+
+{% block content %}
+
+
+  
+<div class="d-flex justify-content-evenly mx-5 mt-5 gap-5 " style="margin-bottom: 100px;">
+  <div class="col-6 align-items-center">
+    <h1>Welcome to Mamar Lirbrary</h1>
+    <p>
+      This is a simple Mamar Lirbrary where you can
+      borrowbooks,returnbooks,shows bookslist booksprice bookstitle withdraw
+      money, . You can also create an account, login, logout. Lorem ipsum dolor
+      sit amet consectetur adipisicing elit. Sed nemo quaerat quo dicta,
+      adipisci eum fuga ratione id numquam eius veniam placeat voluptatum,
+      itaque tempora molestias vel, blanditiis fugiat ipsam!
+    </p>
+  </div>
+  <div class="col-6">
+    <img class="rounded text-center" src="{% static 'img.png' %}" style="width: 75%" />
+  </div>
+</div>
+
+<div class="d-flex gap-5 " style="margin-top: 80px;">
+  
+  <div class="d-flex flex-wrap justify-content-evenly p-4 col-3  " >
+    <div class="col-2 rounded  p-3 " style="background-color:rgba(85, 107, 47, 0.333);width: 200px;">
+        <h5 class="text-center">All Categories</h5>
+        {% for c in categories%}
+        <div class="form-check">
+            <li><a href="{% url 'category_wise_book' c.slug %}"
+                    class="text-decoration-none text-dark">{{c.category_name}}</a>
+        </div>
+        {% endfor %}
+    </div>
+  </div>
+  <div class="col-8 d-flex gap-5" >
+    {% for book in all_books%}
+    <div class="card mb-3" style="width: 18rem;background-color: rgba(205, 50, 76, 0.427);box-shadow: 2px 2px 4px 8px rgba(255, 119, 0, 0.159);border: 2px whitesmoke;">
+      <div class="card-body">
+        <img src="{{ book.image.url }}" alt="">
+        <h5 class="card-title">{{book.title}}</h5>
+        <h6>Price :${{book.price}}</h6>
+        <p class="card-text">
+        {{book.description |truncatewords:10 }}
+        </p>
+        <h6>Quantity :{{book.quantity}}</h6>
+        
+        {% for c in book.book_category.all %}
+        <h4>{{c.category_name}}</h4>
+        {% endfor %}
+
+        <a class="btn btn-outline-dark text-light" href="{% url 'details_book'  book.id %}">Details</a>
+      
+         
+      </div>
+
+    </div>
+    {% endfor %}
+  </div>
+
+</div>
+
+{% endblock %}
