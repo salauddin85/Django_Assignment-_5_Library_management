@@ -1,5 +1,5 @@
 from django import forms
-from .models import BookModel
+from .models import BookModel,ReviewModel
 class BooksForm(forms.ModelForm):
     class Meta:
         model = BookModel
@@ -7,8 +7,8 @@ class BooksForm(forms.ModelForm):
 
     
 
-# class ReviewForm(forms.ModelForm):
-#     class Meta:
-#         model = ReviewModel
-#         fields = ['name', 'review']
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = ReviewModel
+        fields = ['name', 'Review']
 

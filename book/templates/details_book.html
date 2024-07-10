@@ -2,6 +2,7 @@
  
 {% extends 'base.html' %}
 {% block content %}
+{% load crispy_forms_tags%}
 <div class="mx-auto">
 
         <div class="d-flex justify-content-center  flex-wrap   pt-5  mx-auto">
@@ -30,30 +31,39 @@
 
 </div>
 
-
+{% if bought_user %}
 <div class="  d-flex mx-auto  justify-content-center" >
     <div class="card m-2 bg-success mb-5  " style="height: 70vh;">
         <div class="card-body ">
             <form method="post" class="" >
+               
                 <h1>Add Reviews</h1>
                 {% csrf_token %}
                 {{review_form| crispy}}
+               
+
 
                 <button class="btn btn-warning">Submit</button>
 
         </div>
     </div>
-
+    
+{% endif %}
     <div class="card mb-5">
         <div class="mx-auto">
             <h5 class="p-3 ">Total Reviews : {{reviews | length}}</h5>
         </div>
-        {% for r in reviews %}
-        <div class="card-body border m-2">
-            <p><b>{{r.name}}</b> {{r.created_on}}</p>
-            <p>{{r.Review}}</p>
-        </div>
-        {% endfor %}
+        {% if bought_user %}
+            {% for r in reviews %}
+            <div class="card-body border m-2">
+                <p><b>{{r.name}}</b> {{r.created_on}}</p>
+                <p>{{r.Review}}</p>
+            </div>
+            {% endfor %}
+        {% else %}
+        <h6 class="text-center">You are not bought a book</h6>
+        {% endif %}
+      
     </div>
    
 </div>
