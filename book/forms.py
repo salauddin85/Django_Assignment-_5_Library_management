@@ -7,8 +7,8 @@ class BooksForm(forms.ModelForm):
 
     
 
-class ReviewForm(forms.ModelForm):
-    class Meta:
-        model = ReviewModel
-        fields = ['name', 'review']
+# class ReviewForm(forms.ModelForm):
+#     class Meta:
+#         model = ReviewModel
+#         fields = ['name', 'review']
 

@@ -17,12 +17,12 @@ class BookModel (models.Model):
     
 
 
-class ReviewModel(models.Model):
-    user = models.ForeignKey(User,on_delete=models.CASCADE,null=True,blank=True)
-    book = models.ForeignKey(BookModel,on_delete=models.CASCADE,null=True,blank=True)
-    name = models.CharField(max_length=30)
-    Review = models.TextField()
-    created_on = models.DateTimeField(auto_now_add=True,null=True,blank=True)
+# class ReviewModel(models.Model):
+    
+#     book = models.ForeignKey(BookModel,on_delete=models.CASCADE,null=True,blank=True)
+#     name = models.CharField(max_length=30)
+#     Review = models.TextField()
+#     created_on = models.DateTimeField(auto_now_add=True,null=True,blank=True)
 
-    def __str__(self) -> str:
-        return  f'Comments by {self.name}'
+#     def __str__(self) -> str:
+#         return  f'Comments by {self.name}'

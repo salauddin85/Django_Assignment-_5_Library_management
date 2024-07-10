@@ -36,25 +36,25 @@ class DetailsBook(DetailView):
     # def get_success_url(self):
     #     return reverse_lazy('profile')
     
-    def post(self,request,*args,**kwargs):
-        review_form = ReviewForm(data = self.request.POST)
-        book = self.get_object()
-        if review_form.is_valid():
-            review_form  =review_form .save(commit=False)
-            review_form .book = book
-            review_form .save()
-        return self.get(request,*args,**kwargs)
-    def get_context_data(self, **kwargs) :
+    # def post(self,request,*args,**kwargs):
+    #     review_form = ReviewForm(data = self.request.POST)
+    #     book = self.get_object()
+    #     if review_form.is_valid():
+    #         review_form  =review_form .save(commit=False)
+    #         review_form .book = book
+    #         review_form .save()
+    #     return self.get(request,*args,**kwargs)
+    # def get_context_data(self, **kwargs) :
         
-            context = super().get_context_data(**kwargs)
-            book = self.get_object()
-            reviews = ReviewModel.objects.filter(book = book)
-            review_form = ReviewForm()
+    #         context = super().get_context_data(**kwargs)
+    #         book = self.get_object()
+    #         reviews = ReviewModel.objects.filter(book = book)
+    #         review_form = ReviewForm()
            
 
-            context["review_form"] =  review_form
-            context["reviews "] = reviews 
-            return context
+    #         context["review_form"] =  review_form
+    #         context["reviews "] = reviews 
+    #         return context
         
 
 
