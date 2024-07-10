@@ -9,7 +9,8 @@ from .forms import DepositForm
 from .models import TransectionModel
 from django.urls import reverse_lazy
 from.constants import TRANSACTION_TYPE
-
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 from django.core.mail import EmailMessage, EmailMultiAlternatives
 from django.template.loader import render_to_string
@@ -17,7 +18,7 @@ from django.template.loader import render_to_string
 
 
 # Create your views here.
-
+@method_decorator(login_required,name='dispatch')
 class Depositview(FormView):
     form_class = DepositForm
     # title = 'DepositForm' 

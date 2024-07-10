@@ -10,7 +10,12 @@ from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.contrib import messages
 
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+
 # from book.models import BookModel
+
+@method_decorator(login_required,name='dispatch')
 class BorrowBook(ListView):
     model = BorrowBookModel
     pk_url_kwarg = 'id'
