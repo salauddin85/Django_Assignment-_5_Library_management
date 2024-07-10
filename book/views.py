@@ -2,7 +2,8 @@ from django.shortcuts import render,HttpResponse
 from django.views.generic import FormView,DetailView
 from .forms import BooksForm
 from django.urls import reverse_lazy
-from .models import BookModel,ReviewModel
+from .models import BookModel
+# from .models import ReviewModel
 from return_book.models import ReturnBookModel
 from django.views.generic import TemplateView
 from accounts.models import AccountModel
@@ -17,7 +18,7 @@ from django.views.generic import ListView
 from borrow_book.models import BorrowBookModel
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from book.forms import ReviewForm
+# from book.forms import ReviewForm
 
 # Create your views here.
 class BookForm(FormView):
