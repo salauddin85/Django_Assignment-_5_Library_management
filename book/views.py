@@ -17,7 +17,7 @@ from django.views.generic import ListView
 from borrow_book.models import BorrowBookModel
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from .forms import ReviewForm
+from book.forms import ReviewForm
 
 # Create your views here.
 class BookForm(FormView):
