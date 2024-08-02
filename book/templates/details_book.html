@@ -51,7 +51,9 @@
 {% endif %}
     <div class="card mb-5">
         <div class="mx-auto">
+            {%if reviews%}
             <h5 class="p-3 ">Total Reviews : {{reviews | length}}</h5>
+            {%endif%}
         </div>
         {% if bought_user %}
             {% for r in reviews %}

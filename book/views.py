@@ -51,7 +51,11 @@ class DetailsBook(DetailView):
             context = super().get_context_data(**kwargs)
             book = self.get_object()
             review_form = ReviewForm()
-            reviews = ReviewModel.objects.filter(book = book)
+            try:
+                reviews = ReviewModel.objects.filter(book = book)
+            except ReviewModel.DoesNotExist:
+                reviews=None
+            print('review',reviews)
             
             bought_user = BorrowBookModel.objects.filter(book = book ,user = self.request.user)
             # print(bought_user)

@@ -37,11 +37,13 @@ MamarLibrary
         {% endfor %}
     </div>
   </div>
-  <div class="col-8 d-flex gap-5" >
+  <div class="col-8 d-flex flex-wrap gap-5" >
     {% for book in all_books%}
-    <div class="card mb-3" style="width: 18rem;background-color: rgba(205, 50, 76, 0.427);box-shadow: 2px 2px 4px 8px rgba(255, 119, 0, 0.159);border: 2px whitesmoke;">
+    <div class="card mb-3" style=" width:400px;background-color: rgba(205, 50, 76, 0.427);box-shadow: 2px 2px 4px 8px rgba(255, 119, 0, 0.159);border: 2px whitesmoke;">
       <div class="card-body">
-        <img src="{{ book.image.url }}" alt="">
+       <div class="d-flex justify-content-center">
+        <img class="img-fluid" src="{{ book.image.url }}" alt="">
+       </div>
         <h5 class="card-title">{{book.title}}</h5>
         <h6>Price :${{book.price}}</h6>
         <p class="card-text">
