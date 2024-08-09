@@ -20,6 +20,7 @@ sqlparse
 typing_extensions
 tzdata
 wheel
-
+pysqlite3
+pysqlite3-binary
 
 # sed 's/==.*$//' requirements.txt
