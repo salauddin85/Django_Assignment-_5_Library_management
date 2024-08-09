@@ -110,7 +110,7 @@ WSGI_APPLICATION = 'mamar_library.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgresql://fashionfusion_shop_mn7y_user:7PH0VXVFFJKj2uWIPnEvko4QxDwApkho@dpg-cqqvi6o8fa8c73flvm9g-a.oregon-postgres.render.com/fashionfusion_shop_mn7y',
+        default='postgresql://mamar_library_zhpf_user:0g7IJ7nrWRV5upbxuzHHDSdnPY7UfxQi@dpg-cq6nvciju9rs73eor5k0-a.oregon-postgres.render.com/mamar_library_zhpf',
         
     )
 }
