@@ -30,7 +30,7 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-# CSRF_TRUSTED_ORIGINS = ['https://django-assignment-5-library-management.onrender.com']
+CSRF_TRUSTED_ORIGINS = ['https://django-assignment-5-library-management-1.onrender.com']
 
 # Application definition
 
